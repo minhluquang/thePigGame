@@ -190,6 +190,7 @@ btnSub.addEventListener('click', function() {
     👉 Trong mỗi lượt, một người chơi tung xúc xắc bao nhiêu lần tùy ý. Mỗi kết quả sẽ được cộng vào điểm của lượt đó.<br>
     👉 TUY NHIÊN, nếu người chơi tung được con số 1, toàn bộ điểm của lượt đó sẽ bị mất. Sau đó, đến lượt của người chơi kế tiếp.<br>
     👉 Người chơi có thể chọn 'Giữ', điều đó có nghĩa là điểm của lượt đó sẽ được cộng vào điểm toàn cầu của người chơi. Sau đó, đến lượt của người chơi kế tiếp.<br>
+    👉 Người chơi đầu tiên đạt được 20 điểm trên tổng điểm GLOBAL sẽ chiến thắng trò chơi.
     `;
     btnSub.classList.add('hidden');
     document.querySelector('.modal-title').style.textAlign = 'left';
