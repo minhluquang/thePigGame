@@ -34,6 +34,7 @@ const showModal = () => {
 //Function show click new game btn
 const showClickNewGame = () => {
     showModal();
+    btnSub.classList.add('hidden');
     document.querySelector('.modal-title').style.textAlign = 'center';
     document.querySelector('.modal-title').textContent = 
     `💔 Since there is already a winning player, you cannot ROLL or HOLD 😞`;
@@ -139,6 +140,7 @@ btnHold.addEventListener('click', function () {
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
             //Some new features
             showModal();
+            btnSub.classList.add('hidden');
             document.querySelector('.modal-title').style.textAlign = 'center';
             document.querySelector('.modal-title').textContent = `🎉 The player ${activePlayer + 1} wins! 😌`;
 
