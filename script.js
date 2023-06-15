@@ -18,6 +18,28 @@ let activePlayer;
 let scores;
 let playing;
 
+//Declare variable for new Features
+const btnCloseModal = document.querySelector('.close-modal');
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal');
+const rule = document.querySelector('.rule-modal');
+const btnSub = document.querySelector('.modal-sub');
+
+//Function show modal
+const showModal = () => {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
+
+//Function show click new game btn
+const showClickNewGame = () => {
+    showModal();
+    document.querySelector('.modal-title').style.textAlign = 'center';
+    document.querySelector('.modal-title').textContent = 
+    `💔 Since there is already a winning player, you cannot ROLL or HOLD 😞`;
+} 
+
+
 //Init value
 const init = () => {
     score0EL.textContent = 0;
@@ -73,6 +95,8 @@ btnRoll.addEventListener('click', function () {
         } else {
             switchPlayer();
         }
+    } else {
+        showClickNewGame();
     }
 });
 
@@ -113,14 +137,59 @@ btnHold.addEventListener('click', function () {
             diceEL.classList.add('hidden');
             document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+            //Some new features
+            showModal();
+            document.querySelector('.modal-title').style.textAlign = 'center';
+            document.querySelector('.modal-title').textContent = `🎉 The player ${activePlayer + 1} wins! 😌`;
+
         } else {
             // 3. Switch the next player
             switchPlayer();
         }
+    } else {
+        showClickNewGame();
     }
 });
 
 //Click event on button NEW GAME
 btnNew.addEventListener('click', function() {
     init();
+})
+
+//Update some Features
+//Show result the winner
+const closeModal = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+//Show rule
+rule.addEventListener('click', function() {
+    showModal();
+    var text = `
+    👉 The game has 2 players, playing in rounds.<br>
+    👉 In each turn, a player rolls a dice as many times as he wishes. Each result gets added to his ROUND score.<br>
+    👉 BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.<br>
+    👉 The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn.<br>
+    👉 The first player to reach 20 points on GLOBAL score wins the game
+    `;
+    btnSub.classList.remove('hidden');
+    document.querySelector('.modal-title').style.textAlign = 'left';
+    document.querySelector('.modal-title').innerHTML = text;
+});
+
+//Convert to vietnamese
+btnSub.addEventListener('click', function() {
+    var text = `
+    👉 Trò chơi có 2 người chơi, chơi theo vòng lượt.<br>
+    👉 Trong mỗi lượt, một người chơi tung xúc xắc bao nhiêu lần tùy ý. Mỗi kết quả sẽ được cộng vào điểm của lượt đó.<br>
+    👉 TUY NHIÊN, nếu người chơi tung được con số 1, toàn bộ điểm của lượt đó sẽ bị mất. Sau đó, đến lượt của người chơi kế tiếp.<br>
+    👉 Người chơi có thể chọn 'Giữ', điều đó có nghĩa là điểm của lượt đó sẽ được cộng vào điểm toàn cầu của người chơi. Sau đó, đến lượt của người chơi kế tiếp.<br>
+    `;
+    btnSub.classList.add('hidden');
+    document.querySelector('.modal-title').style.textAlign = 'left';
+    document.querySelector('.modal-title').innerHTML = text;
 })
