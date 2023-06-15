@@ -133,7 +133,7 @@ btnHold.addEventListener('click', function () {
         // }
 
         //Teacher code
-        if (scores[activePlayer] >= 20) {
+        if (scores[activePlayer] >= 50) {
             playing = false;
             diceEL.classList.add('hidden');
             document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
@@ -176,7 +176,7 @@ rule.addEventListener('click', function() {
     👉 In each turn, a player rolls a dice as many times as he wishes. Each result gets added to his ROUND score.<br>
     👉 BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.<br>
     👉 The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn.<br>
-    👉 The first player to reach 20 points on GLOBAL score wins the game
+    👉 The first player to reac 50 points on GLOBAL score wins the game
     `;
     btnSub.classList.remove('hidden');
     document.querySelector('.modal-title').style.textAlign = 'left';
@@ -190,7 +190,7 @@ btnSub.addEventListener('click', function() {
     👉 Trong mỗi lượt, một người chơi tung xúc xắc bao nhiêu lần tùy ý. Mỗi kết quả sẽ được cộng vào điểm của lượt đó.<br>
     👉 TUY NHIÊN, nếu người chơi tung được con số 1, toàn bộ điểm của lượt đó sẽ bị mất. Sau đó, đến lượt của người chơi kế tiếp.<br>
     👉 Người chơi có thể chọn 'Giữ', điều đó có nghĩa là điểm của lượt đó sẽ được cộng vào điểm toàn cầu của người chơi. Sau đó, đến lượt của người chơi kế tiếp.<br>
-    👉 Người chơi đầu tiên đạt được 20 điểm trên tổng điểm GLOBAL sẽ chiến thắng trò chơi.
+    👉 Người chơi đầu tiên đạt được 50 điểm trên tổng điểm GLOBAL sẽ chiến thắng trò chơi.
     `;
     btnSub.classList.add('hidden');
     document.querySelector('.modal-title').style.textAlign = 'left';
